@@ -7,10 +7,12 @@ Escribir un programa que pregunte al usuario su edad y muestre por pantalla todo
 
 def solicitar_num() -> int:
     numero_solicitado = input("Ingrese un número igual o superior a 1: ")
-    while numero_solicitado.isdigit() != True or int(numero_solicitado) < 1:
-        numero_solicitado = input("Ingrese un número igual o superior a 1: ")
-    return int(numero_solicitado)
-
+    try:
+        while numero_solicitado.isdigit() != True or int(numero_solicitado) < 1:
+            numero_solicitado = input("Ingrese un número igual o superior a 1: ")
+        return int(numero_solicitado)
+    except ValueError as e:
+        print("Números como ³ no funcionan")
 #Procesado
 
 def obtener_edades(edad_ingresada:int)-> list:
